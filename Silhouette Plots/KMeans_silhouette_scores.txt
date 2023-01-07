@@ -1,0 +1,5 @@
+For 2 clusters, the average silhouette score is: 0.11692099014923246
+For 3 clusters, the average silhouette score is: 0.1316417958433564
+For 4 clusters, the average silhouette score is: 0.14068119186674763
+For 5 clusters, the average silhouette score is: 0.12435743480600557
+For 6 clusters, the average silhouette score is: 0.10471537948038324
