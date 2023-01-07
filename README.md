@@ -52,3 +52,31 @@ In this biclustering diagram, we can see that we have a checkerboard layout. Thi
 K-Means performs fairly well, but clusters incorrectly some book chapters. However, K-Means performs best with Gaussian distributions with compact, balanced clusters. These clusters and not compact and certainly not balanced and as a result, it is reasonable that K-Means does not perform as well.<br>
 <img src="https://github.com/hhuang5163/Book-Author-Clustering/blob/main/Clustering%20Accuracy/HC4wardeuclidean.png"><br>
 It is reasonable that hierarchical clustering with linkage ward and Euclidean distance performs worse on this data since it produces very balanced clusters. Given that we have much more of Austen and London’s works than Milton’s or Shakespeare’s, its reasonable that this clustering method performs worse on this authors data.<br>
+### Cluster Validation
+<img src="https://github.com/hhuang5163/Book-Author-Clustering/blob/main/Silhouette%20Plots/HCwardeuclidean4.png"><br>
+Hierarchical Clustering, Linkage: Ward, Distance: Euclidean<br>
+For 2 clusters, the average silhouette score is: 0.11179590416440538<br>
+For 3 clusters, the average silhouette score is: 0.13092258606841448<br>
+For 4 clusters, the average silhouette score is: 0.13833900164118343<br>
+For 5 clusters, the average silhouette score is: 0.12063475116542396<br>
+For 6 clusters, the average silhouette score is: 0.09618812489451299<br>
+<img src="https://github.com/hhuang5163/Book-Author-Clustering/blob/main/Silhouette%20Plots/KMeans4.png"><br>
+K-Means Clustering<br>
+For 2 clusters, the average silhouette score is: 0.11692099014923246<br>
+For 3 clusters, the average silhouette score is: 0.1316417958433564<br>
+For 4 clusters, the average silhouette score is: 0.14068119186674763<br>
+For 5 clusters, the average silhouette score is: 0.12435743480600557<br>
+For 6 clusters, the average silhouette score is: 0.10471537948038324<br>
+
+From these statistics, we see that hierarchical clustering using linkage ward and Euclidean distance selected K = 4 and K-Means clustering also selected K = 4.<br>
+The silhouette plot indicates the size of each cluster and the silhouette coefficient for each observation in each cluster. The blue line indicates the average silhouette coefficient for the entire clustering with K clusters.<br>
+Based off of the silhouette plot, we can see that the silhouette plot for any cluster that was not selected had most of its clusters below average, and one cluster that is typically much more well classified. For the cluster K that was selected, we can see that more of the silhouette scores per cluster are past the average coefficient line, hence it is a better fit for the model.<br>
+Both K-Means and hierarchical clustering with ward linkage and Euclidean distance perform as expected since they selected K = 4; these methods are both suited for balanced and compact clusters and as a result, they are good for selecting the number of clusters (although in doing so will mis-classify some authors). However, in terms of accuracy, they would not be as good for classifying points to clusters as noted previously; for this authors dataset, there are methods better suited for classification than K-Means or hierarchical clustering.
+## To run
+To run the code, open the file and run it to replicate the results. Sample results for clustering can be found inside the corresponding results folders.<br>
+<ul>
+<li><b>book_chapters.py</b> contains code that will cluster the authors dataset by book chapters
+<li><b>chapters_words.py</b> contains code to cluster the authors dataset using stop words
+<li><b>clustering_accuracy.py</b> will determine the accuracy of clustering with different models
+<li><b>cluster_validation.py</b> will perform hyperparameter tuning to determine which models will correctly tune the number of clusters in the data to 4.
+</ul>
